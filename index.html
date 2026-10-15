@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyMate | B.Tech Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <h2>📚 StudyMate</h2>
+        <p class="small">B.Tech Study Planner</p>
+
+        <nav>
+            <a href="#dashboard">🏠 Dashboard</a>
+            <a href="#tasks">✅ My Tasks</a>
+            <a href="#subjects">📖 Subjects</a>
+            <a href="#timetable">🕒 Timetable</a>
+        </nav>
+
+        <div class="sidebar-note">
+            <h3>💡 Study tip</h3>
+            <p>Study consistently, take breaks, and celebrate small progress!</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="small">YOUR PERSONAL STUDY SPACE</p>
+                <h1 id="greeting">Welcome, Student! 👋</h1>
+                <p id="today"></p>
+            </div>
+            <button class="profile" id="nameButton">Edit Name</button>
+        </header>
+
+        <section id="dashboard">
+            <div class="hero">
+                <div>
+                    <p class="small">YOUR DAILY GOAL</p>
+                    <h2>Small steps, big success! 🚀</h2>
+                    <p>Plan your studies. Track your progress. Reach your goals.</p>
+                </div>
+                <div class="hero-icon">🎓</div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <span>📋</span>
+                    <p>Total Tasks</p>
+                    <h2 id="totalTasks">0</h2>
+                </div>
+                <div class="stat-card">
+                    <span>✅</span>
+                    <p>Completed</p>
+                    <h2 id="completedTasks">0</h2>
+                </div>
+                <div class="stat-card">
+                    <span>⏳</span>
+                    <p>Pending</p>
+                    <h2 id="pendingTasks">0</h2>
+                </div>
+                <div class="stat-card">
+                    <span>📈</span>
+                    <p>Progress</p>
+                    <h2 id="progressText">0%</h2>
+                </div>
+            </div>
+
+            <div class="panel progress-panel">
+                <h3>Overall Study Progress</h3>
+                <div class="progress-track">
+                    <div id="progressBar"></div>
+                </div>
+                <p id="progressMessage">Start adding tasks to track your progress!</p>
+            </div>
+        </section>
+
+        <section id="tasks" class="panel">
+            <h2>📝 My Study Tasks</h2>
+            <p class="muted">Add assignments, exam preparation, and revision tasks.</p>
+
+            <form id="taskForm">
+                <div class="form-grid">
+                    <div>
+                        <label for="taskName">Task Name</label>
+                        <input id="taskName" type="text"
+                               placeholder="e.g. Revise DBMS normalization" required>
+                    </div>
+                    <div>
+                        <label for="subject">Subject</label>
+                        <select id="subject" required>
+                            <option value="Java">Java</option>
+                            <option value="Data Structures">Data Structures</option>
+                            <option value="DBMS">DBMS</option>
+                            <option value="DMS">Discrete Mathematics</option>
+                            <option value="DLD">Digital Logic Design</option>
+                            <option value="AI">Artificial Intelligence</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="taskDate">Due Date</label>
+                        <input id="taskDate" type="date" required>
+                    </div>
+                    <div>
+                        <label for="priority">Priority</label>
+                        <select id="priority">
+                            <option value="High">High</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="primary-btn">+ Add Study Task</button>
+            </form>
+
+            <div class="task-toolbar">
+                <h3>Your Tasks</h3>
+                <select id="filterTasks" aria-label="Filter tasks">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+        </section>
+
+        <section id="subjects" class="panel">
+            <h2>📚 My B.Tech Subjects</h2>
+            <p class="muted">Your semester subjects at a glance.</p>
+
+            <div class="subject-grid">
+                <div class="subject-card"><span>☕</span><h3>Java</h3><p>OOP concepts and programs</p></div>
+                <div class="subject-card"><span>💻</span><h3>Data Structures</h3><p>Stacks, queues, trees and lists</p></div>
+                <div class="subject-card"><span>🗄️</span><h3>DBMS</h3><p>SQL, normalization and transactions</p></div>
+                <div class="subject-card"><span>🔢</span><h3>DMS</h3><p>Logic, counting and relations</p></div>
+                <div class="subject-card"><span>⚡</span><h3>DLD</h3><p>Logic gates and digital circuits</p></div>
+                <div class="subject-card"><span>🤖</span><h3>AI</h3><p>Knowledge representation and planning</p></div>
+            </div>
+        </section>
+
+        <section id="timetable" class="panel">
+            <h2>🕒 Daily Study Timetable</h2>
+            <p class="muted">An example routine you can customize.</p>
+
+            <div class="schedule">
+                <div><strong>5:00 PM – 5:30 PM</strong><span>Rest and refresh</span></div>
+                <div><strong>5:30 PM – 6:15 PM</strong><span>Subject 1: Difficult topic</span></div>
+                <div><strong>6:15 PM – 6:30 PM</strong><span>Short break</span></div>
+                <div><strong>6:30 PM – 7:15 PM</strong><span>Subject 2: Practice problems</span></div>
+                <div><strong>7:15 PM – 8:00 PM</strong><span>Dinner and relaxation</span></div>
+                <div><strong>8:00 PM – 8:30 PM</strong><span>Revision and assignments</span></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with 💜 for B.Tech Students | StudyMate © 2026</p>
+        </footer>
+    </main>
+</div>
+
+</body>
+</html>
